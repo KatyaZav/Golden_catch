@@ -40,8 +40,9 @@ public class PlayerController : MonoBehaviour
             _moveDirection = (moveDirection)Math.Round(x);
 
             Debug.Log("changed");
-            var ef = Instantiate(changeMoveEffect);
-            ef.transform.position = transform.position;
+            
+            //var ef = Instantiate(changeMoveEffect);
+            //ef.transform.position = transform.position;
         }
     }
 
