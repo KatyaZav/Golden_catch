@@ -21,5 +21,7 @@ public class Gold : MonoBehaviour, ICollectable
         var explosion = Instantiate(disapearEffectPrefab);
         explosion.transform.position = transform.position;
         Destroy(gameObject);
+
+        Statistics.AddCount(1);
     }
 }
