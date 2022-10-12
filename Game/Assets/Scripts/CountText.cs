@@ -5,13 +5,14 @@ using TMPro;
 
 public class CountText : MonoBehaviour
 {
-    TextMeshPro text;
+    TextMeshProUGUI text;
 
     void Start()
     {
-        text = GetComponent<TextMeshPro>();
-        Statistics.UpdateGameCount += UpdateText;
+        text = GetComponent<TextMeshProUGUI>();//GetComponent<TextMeshPro>();
         UpdateText(Statistics.GameCount);
+        
+        Statistics.UpdateGameCount += UpdateText;
     }
 
     void UpdateText(int count)

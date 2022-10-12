@@ -12,8 +12,10 @@ public class Gold : MonoBehaviour, ICollectable
         var effect = Instantiate(collectEffectPrefab);
         effect.transform.position = transform.position;
 
-        Debug.Log("Pick gold");
+        //Debug.Log("Pick gold");
         Destroy(gameObject);
+
+        Statistics.AddCount(1);
     }
 
     public void Disapear()
@@ -21,7 +23,5 @@ public class Gold : MonoBehaviour, ICollectable
         var explosion = Instantiate(disapearEffectPrefab);
         explosion.transform.position = transform.position;
         Destroy(gameObject);
-
-        Statistics.AddCount(1);
     }
 }
