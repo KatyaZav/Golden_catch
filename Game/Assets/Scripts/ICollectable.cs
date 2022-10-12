@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface ICollectable
 {
-    public void Pick();
+    public void Collect();
     public void Disapear();
 
 }

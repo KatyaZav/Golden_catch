@@ -33,13 +33,28 @@ public class PlayerController : MonoBehaviour
                
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        ICollectable collect = collision.gameObject.GetComponent<ICollectable>();
+        
+        if (collect != null)
+        {
+            collect.Collect();
+        }
+        else
+        {
+            Debug.LogWarning("Catched strange object: " + collision.ToString());
+            Destroy(collision.gameObject);
+        }
+    }
+
     private void CheckChangeDirection(float x)
     {
         if (Math.Round(x) != (int)_moveDirection)
         {
             _moveDirection = (moveDirection)Math.Round(x);
 
-            Debug.Log("changed");
+            //Debug.Log("changed");
             
             //var ef = Instantiate(changeMoveEffect);
             //ef.transform.position = transform.position;

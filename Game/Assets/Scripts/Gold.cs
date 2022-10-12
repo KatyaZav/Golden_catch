@@ -5,9 +5,13 @@ using UnityEngine;
 public class Gold : MonoBehaviour, ICollectable
 {
     [SerializeField] GameObject disapearEffectPrefab;
+    [SerializeField] GameObject collectEffectPrefab;
 
-    public void Pick()
+    public void Collect()
     {
+        var effect = Instantiate(collectEffectPrefab);
+        effect.transform.position = transform.position;
+
         Debug.Log("Pick gold");
         Destroy(gameObject);
     }
