@@ -8,7 +8,7 @@ public class HealthSlider : MonoBehaviour
     [SerializeField] float MaxHealth;
     [SerializeField] float waitTime;
 
-    [SerializeField]float _health;
+    float _health;
     Image image;
 
     void Start()
