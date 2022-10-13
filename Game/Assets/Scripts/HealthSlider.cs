@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HealthSlider : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class HealthSlider : MonoBehaviour
             if (_health <= 0)
             {
                 Debug.Log("Lose");
+                SceneManager.LoadScene(0);
                 break;
             }
 
