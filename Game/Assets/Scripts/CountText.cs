@@ -17,6 +17,6 @@ public class CountText : MonoBehaviour
 
     void UpdateText(int count)
     {
-        text.text = string.Format("Очки: {0}", count);
+        text.text = string.Format("Очки: {0}", Statistics.GameCount);
     }
 }

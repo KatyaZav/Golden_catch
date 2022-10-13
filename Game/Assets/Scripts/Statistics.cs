@@ -12,6 +12,6 @@ public static class Statistics
     public static void AddCount(int count)
     {
         GameCount += count;
-        UpdateGameCount?.Invoke(GameCount);
+        UpdateGameCount?.Invoke(count);
     }
 }

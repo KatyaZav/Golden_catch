@@ -17,6 +17,7 @@ public class HealthSlider : MonoBehaviour
         _health = MaxHealth;
 
         StartCoroutine(SliderWork());
+        Statistics.UpdateGameCount += AddHealth;
     }
 
     IEnumerator SliderWork()
@@ -43,5 +44,15 @@ public class HealthSlider : MonoBehaviour
     void UpdateSlider()
     {
         image.fillAmount =_health / MaxHealth;
+    }
+
+    void AddHealth(int count)
+    {
+        _health += count * 2;
+
+        if (_health > MaxHealth)
+            _health = MaxHealth + 1;
+
+        UpdateSlider();
     }
 }
