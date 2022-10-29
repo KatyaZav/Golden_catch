@@ -61,19 +61,16 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag != "Border")
+        ICollectable collect = collision.gameObject.GetComponent<ICollectable>();
+        
+        if (collect != null)
         {
-            ICollectable collect = collision.gameObject.GetComponent<ICollectable>();
-
-            if (collect != null)
-            {
-                collect.Collect();
-            }
-            else
-            {
-                Debug.LogWarning("Catched strange object: " + collision.ToString());
-                Destroy(collision.gameObject);
-            }
+            collect.Collect();
+        }
+        else
+        {
+            Debug.LogWarning("Catched strange object: " + collision.ToString());
+            Destroy(collision.gameObject);
         }
     }
 

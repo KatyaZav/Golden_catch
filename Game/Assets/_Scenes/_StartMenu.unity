@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 449759830}
   m_Layer: 0
   m_Name: 'right border '
-  m_TagString: Border
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -634,7 +634,7 @@ GameObject:
   - component: {fileID: 929171924}
   m_Layer: 0
   m_Name: left border
-  m_TagString: Border
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -905,22 +905,6 @@ PrefabInstance:
     - target: {fileID: 4254640620199877031, guid: 2bb81b4226e33fc409dcacf90f994a34, type: 3}
       propertyPath: m_Name
       value: Spawner
-      objectReference: {fileID: 0}
-    - target: {fileID: 4254640620199877033, guid: 2bb81b4226e33fc409dcacf90f994a34, type: 3}
-      propertyPath: MaxSpeed
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4254640620199877033, guid: 2bb81b4226e33fc409dcacf90f994a34, type: 3}
-      propertyPath: TimeBetweenSpawn
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4254640620199877033, guid: 2bb81b4226e33fc409dcacf90f994a34, type: 3}
-      propertyPath: ChanceChangeSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7117012988379234306, guid: 2bb81b4226e33fc409dcacf90f994a34, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bb81b4226e33fc409dcacf90f994a34, type: 3}
