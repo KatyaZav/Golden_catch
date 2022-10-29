@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 449759830}
   m_Layer: 0
   m_Name: 'right border '
-  m_TagString: Untagged
+  m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -858,7 +858,7 @@ GameObject:
   - component: {fileID: 929171924}
   m_Layer: 0
   m_Name: left border
-  m_TagString: Untagged
+  m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
