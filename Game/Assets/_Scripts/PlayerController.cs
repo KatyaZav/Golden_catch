@@ -5,6 +5,11 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
+    delegate void MakeMove();
+    MakeMove movingState;
+
+    [SerializeField] bool useAuto;
+
     Rigidbody2D _rb;
     [SerializeField] float speed;
 
@@ -15,11 +20,17 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        if (useAuto) 
+            movingState = AutoMove;
+        else
+            movingState = Move;
+
+        _moveDirection = moveDirection.right;
     }
 
     void FixedUpdate()
     {
-        Move();
+        movingState();
     }
 
     private void Move()
@@ -31,6 +42,21 @@ public class PlayerController : MonoBehaviour
 
         CheckChangeDirection(x);
                
+    }
+
+    private void AutoMove()
+    {
+        int x = UnityEngine.Random.Range(0, 10);
+        if (x > 7)
+            if (_moveDirection == moveDirection.left)
+                _moveDirection = moveDirection.right;
+            else
+                _moveDirection = moveDirection.left;
+
+        float movem = UnityEngine.Random.Range(0f, 3f);
+        
+        var movement = new Vector2(movem*(int)_moveDirection, 0);
+        _rb.AddForce(movement * speed);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

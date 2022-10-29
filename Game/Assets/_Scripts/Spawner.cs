@@ -7,6 +7,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] float MaxSpeed;
     [SerializeField] float movementDirection;
 
+    [SerializeField] private float TimeBetweenSpawn = 5f;
     public float TimeBetweenGold { get; private set; }
     [SerializeField] GameObject gold;
     [SerializeField] float speed;
@@ -19,7 +20,7 @@ public class Spawner : MonoBehaviour
 
     void Start()
     {
-        TimeBetweenGold = 5f;
+        TimeBetweenGold = TimeBetweenGold;
         _rb = GetComponent<Rigidbody2D>();
         speed = MaxSpeed;
 
