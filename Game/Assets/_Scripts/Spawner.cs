@@ -20,7 +20,7 @@ public class Spawner : MonoBehaviour
 
     void Start()
     {
-        TimeBetweenGold = TimeBetweenGold;
+        TimeBetweenGold = TimeBetweenSpawn;
         _rb = GetComponent<Rigidbody2D>();
         speed = MaxSpeed;
 
