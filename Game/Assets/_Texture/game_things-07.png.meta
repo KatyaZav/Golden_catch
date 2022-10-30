@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8adbd336121a5bd45ac7e1a884c9aee4
+guid: a8f770da519bc9c45a8a158cf0d03dff
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ui-07_0
+      name: game_things-07_0
       rect:
         serializedVersion: 2
         x: 86
@@ -130,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a073a2f33aef914f9f58d7c89f6148e
-      internalID: -1547994036
+      spriteID: 1a6f6d87d88ce0f46a741bf41e269d64
+      internalID: -1343999313
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui-07_1
+      name: game_things-07_1
       rect:
         serializedVersion: 2
         x: 304
@@ -151,8 +151,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1849ee70eefa934ca3bbac041d64845
-      internalID: 1771176164
+      spriteID: 6add9287a1222e448afb39baff4b3145
+      internalID: -1235907293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game_things-07_2
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 16
+        width: 191
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3a4918587f657f428044896fb8b9b44
+      internalID: 1988977611
       vertices: []
       indices: 
       edges: []
@@ -168,8 +189,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ui-07_1: 1771176164
-      ui-07_0: -1547994036
+      game_things-07_1: -1235907293
+      game_things-07_2: 1988977611
+      game_things-07_0: -1343999313
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

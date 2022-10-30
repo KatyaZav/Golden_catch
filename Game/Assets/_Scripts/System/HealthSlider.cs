@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class HealthSlider : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class HealthSlider : MonoBehaviour
 
     float _health;
     Image image;
+    bool flag = true;
+
+    public static Action LowHp;
 
     void Start()
     {
@@ -39,6 +43,17 @@ public class HealthSlider : MonoBehaviour
             
 
             _health--;
+            if (_health <= 0.3 * MaxHealth && flag)
+            {
+                LowHp?.Invoke();
+                flag = false;
+            }
+
+            if (_health >= 0.4 * MaxHealth && flag)
+            {
+                flag = true;
+            }
+
             UpdateSlider();
         }
     }
