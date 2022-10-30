@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void LoadScene(int number)
     {
+        Statistics.EndGame();
         SceneManager.LoadScene(number);
     }
 
