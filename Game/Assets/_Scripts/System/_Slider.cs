@@ -15,7 +15,7 @@ public class _Slider : MonoBehaviour
         if (slider == null)
             Start();
 
-        Debug.Log("enable");
+        //Debug.Log("enable");
         if (isMusic)
             slider.value = MainMenu.VolumeMusic;
         else
@@ -26,6 +26,11 @@ public class _Slider : MonoBehaviour
     {
         soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<MainMenu>();
         slider = GetComponent<Slider>();
+
+        if (isMusic)
+            slider.value = MainMenu.VolumeMusic;
+        else
+            slider.value = MainMenu.VolumeSounds;
     }
 
     public void UpdateSoundsVolume()

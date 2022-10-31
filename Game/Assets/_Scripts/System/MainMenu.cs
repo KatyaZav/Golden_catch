@@ -7,13 +7,11 @@ public class MainMenu : MonoBehaviour
 {
 
     AudioSource manager;
-    public static float VolumeMusic;
-    public static float VolumeSounds;
+    public static float VolumeMusic=1;
+    public static float VolumeSounds=1;
 
     private void Start()
     {
-        VolumeMusic=1;
-        VolumeSounds=1;
         manager = GetComponent<AudioSource>();
     }
     public void LoadScene(int number)
