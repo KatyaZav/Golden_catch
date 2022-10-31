@@ -5,6 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+
+    AudioSource manager;
+    public static float VolumeMusic;
+    public static float VolumeSounds;
+
+    private void Start()
+    {
+        VolumeMusic=1;
+        VolumeSounds=1;
+        manager = GetComponent<AudioSource>();
+    }
     public void LoadScene(int number)
     {
         Statistics.EndGame();
@@ -19,6 +30,11 @@ public class MainMenu : MonoBehaviour
             Time.timeScale = 1;
     }
 
+    public void UpdateVolume()
+    {
+        manager.volume = VolumeSounds;
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().volume = VolumeMusic;
+    }
 
 
 }
