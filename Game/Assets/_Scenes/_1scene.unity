@@ -207,9 +207,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181992720}
-        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: ButtonSound
+      - m_Target: {fileID: 181992722}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: ButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -675,9 +675,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 578914021483366691, guid: 3c0a6b00f3e03134aa31895c50fff0db, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1756325661362432326, guid: 3c0a6b00f3e03134aa31895c50fff0db, type: 3}
       propertyPath: m_Name
       value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1756325661362432326, guid: 3c0a6b00f3e03134aa31895c50fff0db, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1756325661362432326, guid: 3c0a6b00f3e03134aa31895c50fff0db, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6528294307444870667, guid: 3c0a6b00f3e03134aa31895c50fff0db, type: 3}
       propertyPath: m_RootOrder
@@ -724,22 +736,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8433531601531492529, guid: 3c0a6b00f3e03134aa31895c50fff0db, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8433531601531492529, guid: 3c0a6b00f3e03134aa31895c50fff0db, type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c0a6b00f3e03134aa31895c50fff0db, type: 3}
---- !u!114 &181992720 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 578914021483366691, guid: 3c0a6b00f3e03134aa31895c50fff0db, type: 3}
-  m_PrefabInstance: {fileID: 181992719}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 181992721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f290a70e806b64f4387614dd647ebede, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &181992721 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1756325661362432326, guid: 3c0a6b00f3e03134aa31895c50fff0db, type: 3}
@@ -877,9 +882,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 181992720}
-        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: ButtonSound
+      - m_Target: {fileID: 181992722}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: ButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1047,9 +1052,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 181992720}
-        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: ButtonSound
+      - m_Target: {fileID: 181992722}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: ButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3235,9 +3240,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 181992720}
-        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: ButtonSound
+      - m_Target: {fileID: 181992722}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: ButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3756,9 +3761,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 181992720}
-        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: ButtonSound
+      - m_Target: {fileID: 181992722}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: ButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4190,7 +4195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 386487177130194679, guid: e879eba5e74256940a7d1e24e8f42617, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.6
+      value: -0.64
       objectReference: {fileID: 0}
     - target: {fileID: 386487177130194679, guid: e879eba5e74256940a7d1e24e8f42617, type: 3}
       propertyPath: m_LocalPosition.y

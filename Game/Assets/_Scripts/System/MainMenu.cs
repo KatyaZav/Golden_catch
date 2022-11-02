@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class MainMenu : MonoBehaviour
 {
+    public static Action ButtonClicked;
 
     AudioSource manager;
     public static float VolumeMusic=1;
@@ -34,5 +36,9 @@ public class MainMenu : MonoBehaviour
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().volume = VolumeMusic;
     }
 
+    public void ButtonClick()
+    {
+        ButtonClicked?.Invoke();
+    }
 
 }
