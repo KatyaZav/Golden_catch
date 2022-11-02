@@ -14,7 +14,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
-        manager = GetComponent<AudioSource>();
+        manager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<AudioSource>();
     }
     public void LoadScene(int number)
     {

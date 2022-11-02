@@ -24,7 +24,7 @@ public class _Slider : MonoBehaviour
 
     void Start()
     {
-        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<MainMenu>();
+        soundManager = GameObject.FindGameObjectWithTag("MainMenu").GetComponent<MainMenu>();
         slider = GetComponent<Slider>();
 
         if (isMusic)
