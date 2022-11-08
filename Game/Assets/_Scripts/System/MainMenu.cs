@@ -12,6 +12,11 @@ public class MainMenu : MonoBehaviour
     public static float VolumeMusic=1;
     public static float VolumeSounds=1;
 
+    private void Awake()
+    {
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().volume = VolumeMusic;    
+    }
+
     private void Start()
     {
         manager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<AudioSource>();
