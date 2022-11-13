@@ -21,6 +21,11 @@ public class MainMenu : MonoBehaviour
     {
         manager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<AudioSource>();
     }
+
+    /// <summary>
+    /// End game and load <number> Scene
+    /// </summary>
+    /// <param name="number"></param>
     public void LoadScene(int number)
     {
         Statistics.EndGame();
