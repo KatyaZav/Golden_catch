@@ -12,7 +12,8 @@ public class SoundManager : MonoBehaviour
 
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        if (gameObject != null)
+            DontDestroyOnLoad(gameObject);
         var e = GameObject.FindGameObjectsWithTag("SoundManager");
         if (e.Length>1)
         {
