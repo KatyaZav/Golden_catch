@@ -15,7 +15,6 @@ public class _Slider : MonoBehaviour
         if (slider == null)
             Start();
 
-        //Debug.Log("enable");
         if (isMusic)
             slider.value = MainMenu.VolumeMusic;
         else

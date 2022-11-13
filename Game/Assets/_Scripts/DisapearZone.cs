@@ -6,18 +6,19 @@ public class DisapearZone : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       try
         {
             ICollectable obj = collision.gameObject.GetComponent<ICollectable>();
-          
-            Debug.Log("Deleted " + collision.gameObject.ToString());
-            obj.Disapear();
-            
-        }
-        catch(System.Exception e)
-        {
-            Debug.LogWarning("Fall something (" + collision.gameObject.ToString() +") non ICollectible! " + e );
-            Destroy(collision.gameObject);
+
+            if (obj != null)
+            {
+                Debug.Log("Deleted " + collision.gameObject.ToString());
+                obj.Disapear();
+            }
+            else
+            {
+               Debug.LogWarning("Fall something (" + collision.gameObject.ToString() + ") non ICollectible! ");
+                Destroy(collision.gameObject);
+            }
         }
     }
 }

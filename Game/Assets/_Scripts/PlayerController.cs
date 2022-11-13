@@ -79,11 +79,6 @@ public class PlayerController : MonoBehaviour
         if (Math.Round(x) != (int)_moveDirection)
         {
             _moveDirection = (moveDirection)Math.Round(x);
-
-            //Debug.Log("changed");
-            
-            //var ef = Instantiate(changeMoveEffect);
-            //ef.transform.position = transform.position;
         }
     }
 

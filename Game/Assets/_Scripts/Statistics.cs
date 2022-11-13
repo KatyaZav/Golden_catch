@@ -9,9 +9,12 @@ public static class Statistics
     public static int GameCount { get; private set; }
     public static int LosePoints { get; private set;}
     
+    /// <summary>
+    /// End game and update record
+    /// </summary>
     public static void EndGame()
     {
-        //рекорд
+        //обновить рекорд
         GameCount = 0;
         LosePoints = 0;
     } 
