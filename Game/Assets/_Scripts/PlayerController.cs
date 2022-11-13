@@ -16,10 +16,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject changeMoveEffect;
     moveDirection _moveDirection;
 
-
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+
         if (useAuto) 
             movingState = AutoMove;
         else
@@ -46,16 +46,13 @@ public class PlayerController : MonoBehaviour
 
     private void AutoMove()
     {
-        int x = UnityEngine.Random.Range(0, 10);
-        if (x > 7)
+        if (UnityEngine.Random.Range(0, 10) > 7)
             if (_moveDirection == moveDirection.left)
                 _moveDirection = moveDirection.right;
             else
                 _moveDirection = moveDirection.left;
-
-        float movem = UnityEngine.Random.Range(0f, 3f);
-        
-        var movement = new Vector2(movem*(int)_moveDirection, 0);
+                
+        var movement = new Vector2(UnityEngine.Random.Range(0f, 3f) * (int)_moveDirection, 0);
         _rb.AddForce(movement * speed);
     }
 

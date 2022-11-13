@@ -25,20 +25,11 @@ public class Generator : MonoBehaviour
 
     void Generate()
     {
-       // if (Random.Range(0, 10) >= 3)
         {
             if (Random.Range(0, 10) >= 5)
-            {
                 StartCoroutine(Animate(leftPointer, left, Gold));
-            }
             else StartCoroutine(Animate(rightPointer, right, Gold));
         }            
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-            Generate();
     }
 
     private IEnumerator Animate(GameObject obj, GameObject border, GameObject pref)
@@ -46,7 +37,6 @@ public class Generator : MonoBehaviour
         obj.SetActive(true);
         yield return new WaitForSeconds(3f);
         obj.SetActive(false);
-
         yield return new WaitForSeconds(1f);
         
         var yPos = border.transform.position.y+1;
@@ -62,5 +52,11 @@ public class Generator : MonoBehaviour
         }
 
         Instantiate(pref, new Vector2(X, yPos), Quaternion.identity);
+    }
+
+    private void OnDestroy()
+    {
+        Statistics.LosedPoint -= Generate;
+        HealthSlider.LowHp -= Generate;
     }
 }

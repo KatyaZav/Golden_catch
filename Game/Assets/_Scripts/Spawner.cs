@@ -8,10 +8,10 @@ public class Spawner : MonoBehaviour
     [SerializeField] float movementDirection;
 
     [SerializeField] private float TimeBetweenSpawn = 5f;
-    public float TimeBetweenGold { get; private set; }
     [SerializeField] GameObject gold;
     [SerializeField] float speed;
     Rigidbody2D _rb;
+    public float TimeBetweenGold { get; private set; }
 
 
     [Range(1, 100)] [SerializeField] int ChanceChangeDirection;
@@ -34,7 +34,6 @@ public class Spawner : MonoBehaviour
         {
             yield return new WaitForFixedUpdate();
 
-            //transform.Translate((new Vector2(movementDirection, 0)) * MaxSpeed * Time.fixedDeltaTime);
             _rb.AddForce((new Vector2(movementDirection, 0)) * speed * 2);
 
             if (Random.Range(1, 100) < ChanceChangeDirection)
@@ -42,19 +41,13 @@ public class Spawner : MonoBehaviour
                 movementDirection *= -1;
 
                 if (Random.Range(0, 100) < 30)
-                {
                     speed = Random.Range(0, MaxSpeed);
-                }
                 else if (Random.Range(0, 100) < 5)
-                {
                     speed = MaxSpeed;
-                }
             }
 
             if (Random.Range(0, 100) < ChanceChangeSpeed)
-            {
                 speed = Random.Range(0, MaxSpeed);
-            }
         }
     }
 

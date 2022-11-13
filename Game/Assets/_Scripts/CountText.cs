@@ -19,4 +19,10 @@ public class CountText : MonoBehaviour
     {
         text.text = string.Format("Очки: {0}", Statistics.GameCount);
     }
+
+
+    private void OnDestroy()
+    {
+        Statistics.UpdateGameCount -= UpdateText;
+    }
 }
