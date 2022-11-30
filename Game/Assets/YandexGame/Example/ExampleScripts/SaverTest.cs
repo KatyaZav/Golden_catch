@@ -20,7 +20,7 @@ public class SaverTest : MonoBehaviour
 
     public void Save()
     {
-        YandexGame.savesData.money = int.Parse(integerText.text);
+        YandexGame.savesData.RecordCount = int.Parse(integerText.text);
         YandexGame.savesData.newPlayerName = stringifyText.text.ToString();
 
         for (int i = 0; i < booleanArrayToggle.Length; i++)
@@ -36,7 +36,7 @@ public class SaverTest : MonoBehaviour
         integerText.text = string.Empty;
         stringifyText.text = string.Empty;
 
-        integerText.placeholder.GetComponent<Text>().text = YandexGame.savesData.money.ToString();
+        integerText.placeholder.GetComponent<Text>().text = YandexGame.savesData.RecordCount.ToString();
         stringifyText.placeholder.GetComponent<Text>().text = YandexGame.savesData.newPlayerName;
 
         for (int i = 0; i < booleanArrayToggle.Length; i++)

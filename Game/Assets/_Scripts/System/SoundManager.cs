@@ -10,6 +10,13 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField]AudioSource sourse;
 
+    private void Awake()
+    {
+        Statistics.UpdateGameCount += Count;
+        Statistics.LosedPoint += Lose;
+        MainMenu.ButtonClicked += ButtonSound;       
+    }
+
     void Start()
     {
         if (gameObject != null)
@@ -23,9 +30,6 @@ public class SoundManager : MonoBehaviour
 
         sourse = GetComponent<AudioSource>();
 
-        Statistics.UpdateGameCount += Count;
-        Statistics.LosedPoint += Lose;
-        MainMenu.ButtonClicked += ButtonSound;
     }
 
     private void Count(int x)

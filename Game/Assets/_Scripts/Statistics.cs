@@ -5,7 +5,6 @@ using UnityEngine;
 
 public static class Statistics 
 {
-    //public static int RecordCount { get; private set;}
     public static int GameCount { get; private set; }
     public static int LosePoints { get; private set;}
     
@@ -14,7 +13,13 @@ public static class Statistics
     /// </summary>
     public static void EndGame()
     {
-        //обновить рекорд
+        if (GameCount > YG.YandexGame.savesData.RecordCount)
+        {
+            YG.YandexGame.savesData.RecordCount = GameCount;
+
+            Debug.Log(YG.YandexGame.savesData.RecordCount);
+        }
+        
         GameCount = 0;
         LosePoints = 0;
     } 
@@ -23,6 +28,7 @@ public static class Statistics
     public static void AddCount(int count)
     {
         GameCount += count;
+        Debug.Log(GameCount);
         UpdateGameCount?.Invoke(count);
     }
 

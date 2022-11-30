@@ -7,16 +7,26 @@ public class CountText : MonoBehaviour
 {
     TextMeshProUGUI text;
 
+    [SerializeField] bool isText = true;
+
     void Start()
     {
         text = GetComponent<TextMeshProUGUI>();//GetComponent<TextMeshPro>();
-        UpdateText(Statistics.GameCount);
-        
-        Statistics.UpdateGameCount += UpdateText;
+        if (isText)
+        {
+            UpdateText(Statistics.GameCount);
+
+            Statistics.UpdateGameCount += UpdateText;
+        }
+        else
+        {
+            text.text = string.Format("Рекорд: {0}", YG.YandexGame.savesData.RecordCount);
+        }
     }
 
     void UpdateText(int count)
     {
+        Debug.Log("ok");
         text.text = string.Format("Очки: {0}", Statistics.GameCount);
     }
 
