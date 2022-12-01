@@ -16,9 +16,9 @@ public static class Statistics
         if (GameCount > YG.YandexGame.savesData.RecordCount)
         {
             YG.YandexGame.savesData.RecordCount = GameCount;
-
-            Debug.Log(YG.YandexGame.savesData.RecordCount);
+            YG.YandexGame.SaveProgress();
         }
+        Debug.Log(YG.YandexGame.savesData.RecordCount);
         
         GameCount = 0;
         LosePoints = 0;
