@@ -20,7 +20,10 @@ public class CountText : MonoBehaviour
         }
         else
         {
-            text.text = string.Format("Рекорд: {0}", YG.YandexGame.savesData.RecordCount);
+            Debug.Log(YG.YandexGame.savesData.RecordCount);
+            
+            if (YG.YandexGame.SDKEnabled == true)  
+                text.text = string.Format("Рекорд: {0}", YG.YandexGame.savesData.RecordCount);
         }
     }
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class Statistics 
-{
+{  
     public static int GameCount { get; private set; }
     public static int LosePoints { get; private set;}
     
@@ -13,6 +13,12 @@ public static class Statistics
     /// </summary>
     public static void EndGame()
     {
+        if (GameCount > 5)
+            YG.YandexGame.savesData.isGetGold = true;
+
+        if (!YG.YandexGame.savesData.isWasGame)
+            YG.YandexGame.savesData.isWasGame = true;
+
         if (GameCount > YG.YandexGame.savesData.RecordCount)
         {
             YG.YandexGame.savesData.RecordCount = GameCount;

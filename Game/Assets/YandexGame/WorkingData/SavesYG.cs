@@ -13,5 +13,8 @@ namespace YG
         public int RecordCount = 0;
         public string newPlayerName = "Hello!";
         public bool[] openLevels = new bool[3];
+
+        public bool isGetGold = false;
+        public bool isWasGame = false;
     }
 }
