@@ -9,7 +9,7 @@ public class CountText : MonoBehaviour
 
     [SerializeField] bool isText = true;
 
-    void Start()
+    void Awake()
     {
         text = GetComponent<TextMeshProUGUI>();//GetComponent<TextMeshPro>();
         if (isText)
