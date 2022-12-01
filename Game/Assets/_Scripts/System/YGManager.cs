@@ -12,8 +12,6 @@ public class YGManager : MonoBehaviour
     {
         if (YG.YandexGame.SDKEnabled == true)
             CheckAutorisation();
-
-        YG.YandexGame.NewLeaderboardScores("TopRecordCountPlayers", YG.YandexGame.savesData.RecordCount);
     }
 
     private void CheckAutorisation()

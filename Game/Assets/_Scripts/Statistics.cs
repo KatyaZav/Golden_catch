@@ -17,6 +17,8 @@ public static class Statistics
         {
             YG.YandexGame.savesData.RecordCount = GameCount;
             YG.YandexGame.SaveProgress();
+
+            YG.YandexGame.NewLeaderboardScores("TopRecordCountPlayers", YG.YandexGame.savesData.RecordCount);
         }
         Debug.Log(YG.YandexGame.savesData.RecordCount);
         
