@@ -7,6 +7,7 @@ public class CountText : MonoBehaviour
 {
     TextMeshProUGUI text;   
     [SerializeField] bool isText = true;
+    private void OnEnable() => YG.YandexGame.GetDataEvent += UpdateRecord;
 
     void Start()
     {
@@ -24,15 +25,15 @@ public class CountText : MonoBehaviour
 
 
             if (YG.YandexGame.SDKEnabled == true)
-                UpdateRecord(YG.YandexGame.savesData.RecordCount);
+                UpdateRecord();
             else
                 text.text = "Рекорд не загружен";
         }
     }
 
-    void UpdateRecord(int count)
+    void UpdateRecord()
     {
-        text.text = string.Format("Рекорд: {0}", Statistics.GameCount);
+        text.text = string.Format("Рекорд: {0}", YG.YandexGame.savesData.RecordCount);
     }
 
     void UpdateText(int count)
