@@ -26,7 +26,7 @@ public static class Statistics
 
             YG.YandexGame.NewLeaderboardScores("TopRecordCountPlayers", YG.YandexGame.savesData.RecordCount);
         }
-        Debug.Log(YG.YandexGame.savesData.RecordCount);
+        //Debug.Log(YG.YandexGame.savesData.RecordCount);
         
         GameCount = 0;
         LosePoints = 0;
