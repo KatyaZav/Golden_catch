@@ -5,13 +5,13 @@ using TMPro;
 
 public class CountText : MonoBehaviour
 {
-    TextMeshProUGUI text;
-
+    TextMeshProUGUI text;   
     [SerializeField] bool isText = true;
 
-    void Awake()
+    void Start()
     {
-        text = GetComponent<TextMeshProUGUI>();//GetComponent<TextMeshPro>();
+        text = GetComponent<TextMeshProUGUI>();
+
         if (isText)
         {
             UpdateText(Statistics.GameCount);
@@ -20,16 +20,23 @@ public class CountText : MonoBehaviour
         }
         else
         {
-            Debug.Log(YG.YandexGame.savesData.RecordCount);
-            
-            if (YG.YandexGame.SDKEnabled == true)  
-                text.text = string.Format("Рекорд: {0}", YG.YandexGame.savesData.RecordCount);
+            Debug.Log(string.Format("Record: {0}", YG.YandexGame.savesData.RecordCount));
+
+
+            if (YG.YandexGame.SDKEnabled == true)
+                UpdateRecord(YG.YandexGame.savesData.RecordCount);
+            else
+                text.text = "Рекорд не загружен";
         }
+    }
+
+    void UpdateRecord(int count)
+    {
+        text.text = string.Format("Рекорд: {0}", Statistics.GameCount);
     }
 
     void UpdateText(int count)
     {
-        Debug.Log("ok");
         text.text = string.Format("Очки: {0}", Statistics.GameCount);
     }
 
