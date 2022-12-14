@@ -13,7 +13,8 @@ public class LosingMenu : MonoBehaviour
     private void Awake()
     {
         HealthSlider.EndHP += Activate;
-        gameObject.SetActive(false);        
+        gameObject.SetActive(false);
+        YG.YandexGame.CloseVideoEvent += ResumeGame;
     }
 
     void Activate()
@@ -35,14 +36,22 @@ public class LosingMenu : MonoBehaviour
         {
             New_Record.GetComponent<TextMeshProUGUI>().text = string.Format("Попробуй еще раз!");
         }
+
     }
 
     public void ResumeGame()
     {
         YG.YandexGame.RewVideoShow(0);
+    }
 
-        gameObject.SetActive(false);
-        Main_Menu.GetComponent<MainMenu>().MakePause(false);
-        Statistics.AddCount(0);
+    void ResumeGame(int u)
+    {
+        if (u == 0)
+        {
+            gameObject.SetActive(false);
+            Main_Menu.GetComponent<MainMenu>().MakePause(false);
+            Statistics.AddCount(0);
+        }
+
     }
 }
