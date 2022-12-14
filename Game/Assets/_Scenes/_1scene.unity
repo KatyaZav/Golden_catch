@@ -2773,7 +2773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad2d99d4c5fb95049a6f560b3fa657e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gold: {fileID: 386487177130194674, guid: e879eba5e74256940a7d1e24e8f42617, type: 3}
+  gold: {fileID: 0}
   left: {fileID: 128140336}
   right: {fileID: 871203763}
   leftPointer: {fileID: 1353089126}
@@ -5267,8 +5267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c91f65dad31565c49a9d151473aa0d77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 10
-  waitTime: 2
 --- !u!1 &1816582016
 GameObject:
   m_ObjectHideFlags: 0
@@ -5702,7 +5700,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 67.59, y: -1.8799744}
+  m_AnchoredPosition: {x: 67.589966, y: -1.8799744}
   m_SizeDelta: {x: 93.79, y: -58.02}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2119265159
