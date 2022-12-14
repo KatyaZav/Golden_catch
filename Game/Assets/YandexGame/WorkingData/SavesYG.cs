@@ -11,8 +11,7 @@ namespace YG
 
         // Ваши сохранения
         public int RecordCount = 0;
-        public string newPlayerName = "Hello!";
-        public bool[] openLevels = new bool[3];
+        public int Diamonds = 0;
 
         public bool isGetGold = false;
         public bool isWasGame = false;

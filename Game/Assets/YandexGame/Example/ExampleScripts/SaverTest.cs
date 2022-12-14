@@ -20,12 +20,12 @@ public class SaverTest : MonoBehaviour
 
     public void Save()
     {
-        YandexGame.savesData.RecordCount = int.Parse(integerText.text);
+        /*YandexGame.savesData.RecordCount = int.Parse(integerText.text);
         YandexGame.savesData.newPlayerName = stringifyText.text.ToString();
 
         for (int i = 0; i < booleanArrayToggle.Length; i++)
             YandexGame.savesData.openLevels[i] = booleanArrayToggle[i].isOn;
-
+        */
         YandexGame.SaveProgress();
     }
 
@@ -33,7 +33,7 @@ public class SaverTest : MonoBehaviour
 
     public void GetLoad()
     {
-        integerText.text = string.Empty;
+        /*integerText.text = string.Empty;
         stringifyText.text = string.Empty;
 
         integerText.placeholder.GetComponent<Text>().text = YandexGame.savesData.RecordCount.ToString();
@@ -44,6 +44,6 @@ public class SaverTest : MonoBehaviour
 
         systemSavesText.text = $"Language - {YandexGame.savesData.language}\n" +
         $"First Session - {YandexGame.savesData.isFirstSession}\n" +
-        $"Prompt Done - {YandexGame.savesData.promptDone}\n";
+        $"Prompt Done - {YandexGame.savesData.promptDone}\n";*/
     }
 }
