@@ -26,7 +26,7 @@ public class MainMenu : MonoBehaviour
     /// End game and load <number> Scene
     /// </summary>
     /// <param name="number"></param>
-    public void LoadScene(int number)
+    public void EndGameAndLoadScene(int number)
     {
         Statistics.EndGame();
         SceneManager.LoadScene(number);

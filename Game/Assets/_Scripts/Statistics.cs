@@ -7,6 +7,11 @@ public static class Statistics
 {  
     public static int GameCount { get; private set; }
     public static int LosePoints { get; private set;}
+
+    /// <summary>
+    /// Проверка на то, что после поражения была использована реклама для второй жизни.
+    /// </summary>
+    public static bool HelpVideoEndGet = false;
     
     /// <summary>
     /// End game and update record
@@ -35,7 +40,9 @@ public static class Statistics
     public static Action<int> UpdateGameCount;
     public static void AddCount(int count)
     {
-        GameCount += count;
+        if (count > 0)
+            GameCount += count;
+        
         Debug.Log(GameCount);
         UpdateGameCount?.Invoke(count);
     }

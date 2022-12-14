@@ -4225,7 +4225,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8086097008455724649}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_MethodName: EndGameAndLoadScene
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -15,6 +15,7 @@ public class HealthSlider : MonoBehaviour
     bool flag = true;
 
     public static Action LowHp;
+    public static Action EndHP;
 
     void Start()
     {
@@ -32,7 +33,8 @@ public class HealthSlider : MonoBehaviour
             if (_health <= 0)
             {
                 Debug.Log("Lose");
-                SceneManager.LoadScene(0);
+                EndHP?.Invoke();
+                //SceneManager.LoadScene(0);
                 break;
             }
 
@@ -65,11 +67,18 @@ public class HealthSlider : MonoBehaviour
 
     void AddHealth(int count)
     {
-        _health += count * 2;
+        if (count <= 0)
+        {
+            _health = MaxHealth;
+        }
+        else
+        {
+            _health += count * 2;
 
-        if (_health > MaxHealth)
-            _health = MaxHealth + 1;
+            if (_health > MaxHealth)
+                _health = MaxHealth + 1;
 
+        }
         UpdateSlider();
     }
 }
