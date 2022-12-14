@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Generator : MonoBehaviour
 {
-    [SerializeField] GameObject Gold;
+    [SerializeField] GameObject gold;
     [SerializeField] GameObject left;
     [SerializeField] GameObject right;
 
@@ -30,13 +30,17 @@ public class Generator : MonoBehaviour
         {
             HealthSlider.waitTime = 1.5f;
             HealthSlider.MaxHealth *= 1.1f;
+            Gold.UpdateGoldPower(2);
+
             SpawnSpawner();
         }
 
-        if (Statistics.GameCount == 30)
+        if (Statistics.GameCount == 31)
         {
             HealthSlider.waitTime = 1.2f;
             HealthSlider.MaxHealth *= 1.2f;
+            Gold.UpdateGoldPower(3);
+
             SpawnSpawner();
         }
 
@@ -58,8 +62,8 @@ public class Generator : MonoBehaviour
     {
         {
             if (Random.Range(0, 10) >= 5)
-                StartCoroutine(Animate(leftPointer, left, Gold));
-            else StartCoroutine(Animate(rightPointer, right, Gold));
+                StartCoroutine(Animate(leftPointer, left, gold));
+            else StartCoroutine(Animate(rightPointer, right, gold));
         }            
     }
 

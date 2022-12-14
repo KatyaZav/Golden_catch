@@ -8,6 +8,8 @@ public static class Statistics
     public static int GameCount { get; private set; }
     public static int LosePoints { get; private set;}
 
+    public static int GoldPower;
+
     /// <summary>
     /// Проверка на то, что после поражения была использована реклама для второй жизни.
     /// </summary>
@@ -38,10 +40,10 @@ public static class Statistics
     } 
 
     public static Action<int> UpdateGameCount;
-    public static void AddCount(int count)
+    public static void AddCount(int power, int count)
     {
-        if (count > 0)
-            GameCount += count;
+        if (power > 0)
+            GameCount += power;
         
         //Debug.Log(GameCount);
         UpdateGameCount?.Invoke(count);
