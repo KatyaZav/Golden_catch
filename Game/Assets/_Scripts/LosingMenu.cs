@@ -10,11 +10,6 @@ public class LosingMenu : MonoBehaviour
     [SerializeField] GameObject New_Record;
     [SerializeField] GameObject Main_Menu;
 
-    private void OnDisable()
-    {
-        Debug.Log("IM live");
-    }
-
     private void Awake()
     {
         HealthSlider.EndHP += Activate;
@@ -44,9 +39,10 @@ public class LosingMenu : MonoBehaviour
 
     public void ResumeGame()
     {
+        YG.YandexGame.RewVideoShow(0);
+
         gameObject.SetActive(false);
         Main_Menu.GetComponent<MainMenu>().MakePause(false);
-
         Statistics.AddCount(0);
     }
 }
