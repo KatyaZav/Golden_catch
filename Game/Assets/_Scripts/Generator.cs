@@ -13,14 +13,31 @@ public class Generator : MonoBehaviour
     float Middle;
 
 
-    //[SerializeField] GameObject
-    //
+    [SerializeField] GameObject goldenSpawner;
+    
     void Start()
     {
         Statistics.LosedPoint += Generate;
         HealthSlider.LowHp += Generate;
+        Statistics.UpdateGameCount += Checking;
 
         Middle = (right.transform.position.x + left.transform.position.x)/2;
+    }
+
+    void Checking(int count)
+    {
+        if (Statistics.GameCount==5)
+        {
+            var yPos = Random.Range(rightPointer.transform.position.y + 1, right.transform.position.y);
+            var x = Random.Range(left.transform.transform.position.x, right.transform.position.x);
+
+            var a = Instantiate(goldenSpawner, new Vector2(x, yPos), Quaternion.identity);
+            var y = a.GetComponent<Spawner>();
+            
+            y.ChangeTimeBetweenSpawn(Random.Range(3,30));
+            y.ChanceChangeDirection = Random.Range(1, 10);
+            y.ChanceChangeSpeed = Random.Range(1, 10);
+        }
     }
 
     void Generate()

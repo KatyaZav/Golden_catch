@@ -11,19 +11,26 @@ public class Spawner : MonoBehaviour
     [SerializeField] GameObject gold;
     [SerializeField] float speed;
     Rigidbody2D _rb;
-    public float TimeBetweenGold { get; private set; }
+
+    public void ChangeTimeBetweenSpawn(float value)
+    {
+        if (value > 0)
+            TimeBetweenSpawn = value;
+        else
+            Debug.LogWarning("Ancorrect value");
+    }
 
 
-    [Range(1, 100)] [SerializeField] int ChanceChangeDirection;
+    [Range(1, 100)] [SerializeField] public int ChanceChangeDirection;
 
-    [Range(1, 100)] [SerializeField] int ChanceChangeSpeed;
+    [Range(1, 100)] [SerializeField] public int ChanceChangeSpeed;
 
     [SerializeField]Gradient gradient;
     [SerializeField]SpriteRenderer sprite;
 
+
     void Start()
     {
-        TimeBetweenGold = TimeBetweenSpawn;
         _rb = GetComponent<Rigidbody2D>();
         speed = MaxSpeed;
         sprite = GetComponentInChildren<SpriteRenderer>();
@@ -60,7 +67,7 @@ public class Spawner : MonoBehaviour
         while (true)
         {
             StartCoroutine(ColorChanging());
-            yield return new WaitForSeconds(TimeBetweenGold);
+            yield return new WaitForSeconds(TimeBetweenSpawn);
 
             var golden = Instantiate(gold);
             golden.transform.position = transform.position;           
@@ -72,11 +79,10 @@ public class Spawner : MonoBehaviour
         var i = 0;
         while (true)
         {
-            if (i > TimeBetweenGold)
+            if (i > TimeBetweenSpawn)
                 break;
 
-            Debug.Log(sprite.color = gradient.Evaluate(i / TimeBetweenGold));
-            sprite.color = gradient.Evaluate(i / TimeBetweenGold);
+            sprite.color = gradient.Evaluate(i / TimeBetweenSpawn);
             i++;
             yield return new WaitForSeconds(1);
         }
