@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class LosingMenu : MonoBehaviour
 {
@@ -9,7 +10,9 @@ public class LosingMenu : MonoBehaviour
     [SerializeField] GameObject Record;
     [SerializeField] GameObject New_Record;
     [SerializeField] GameObject Main_Menu;
+    [SerializeField] GameObject button;
 
+    public static Action LoseMenuActivate;
     private void Awake()
     {
         HealthSlider.EndHP += Activate;
@@ -37,6 +40,7 @@ public class LosingMenu : MonoBehaviour
             New_Record.GetComponent<TextMeshProUGUI>().text = string.Format("Попробуй еще раз!");
         }
 
+        button.SetActive(!Statistics.HelpVideoEndGet);
     }
 
     public void ResumeGame()
@@ -50,7 +54,9 @@ public class LosingMenu : MonoBehaviour
         {
             gameObject.SetActive(false);
             Main_Menu.GetComponent<MainMenu>().MakePause(false);
-            Statistics.AddCount(0);
+
+            LoseMenuActivate?.Invoke();
+            Statistics.HelpVideoEndGet = true;
         }
 
     }

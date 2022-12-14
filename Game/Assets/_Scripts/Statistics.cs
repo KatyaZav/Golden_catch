@@ -43,7 +43,7 @@ public static class Statistics
         if (count > 0)
             GameCount += count;
         
-        Debug.Log(GameCount);
+        //Debug.Log(GameCount);
         UpdateGameCount?.Invoke(count);
     }
 

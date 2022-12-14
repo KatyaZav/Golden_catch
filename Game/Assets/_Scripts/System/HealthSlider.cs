@@ -17,13 +17,19 @@ public class HealthSlider : MonoBehaviour
     public static Action LowHp;
     public static Action EndHP;
 
-    void Start()
+    private void Awake()
     {
         image = GetComponent<Image>();
-        _health = MaxHealth;
 
-        StartCoroutine(SliderWork());
         Statistics.UpdateGameCount += AddHealth;
+        LosingMenu.LoseMenuActivate += ExtraLive;
+    }
+
+    void Start()
+    {
+        _health = MaxHealth;
+        image.fillAmount = _health;
+        StartCoroutine(SliderWork());
     }
 
     IEnumerator SliderWork()
@@ -60,6 +66,14 @@ public class HealthSlider : MonoBehaviour
         }
     }
 
+    void ExtraLive()
+    {
+        if (!Statistics.HelpVideoEndGet)
+        {
+            Start();
+        }
+    }
+
     void UpdateSlider()
     {
         image.fillAmount =_health / MaxHealth;
@@ -67,18 +81,12 @@ public class HealthSlider : MonoBehaviour
 
     void AddHealth(int count)
     {
-        if (count <= 0)
-        {
-            _health = MaxHealth;
-        }
-        else
-        {
+        
             _health += count * 2;
 
             if (_health > MaxHealth)
                 _health = MaxHealth + 1;
 
-        }
         UpdateSlider();
     }
 }
