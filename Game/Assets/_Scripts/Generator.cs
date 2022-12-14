@@ -28,13 +28,27 @@ public class Generator : MonoBehaviour
     {
         if (Statistics.GameCount==5)
         {
+            HealthSlider.waitTime = 1.5f;
+            HealthSlider.MaxHealth *= 1.1f;
+            SpawnSpawner();
+        }
+
+        if (Statistics.GameCount == 30)
+        {
+            HealthSlider.waitTime = 1.2f;
+            HealthSlider.MaxHealth *= 1.2f;
+            SpawnSpawner();
+        }
+
+        void SpawnSpawner()
+        {
             var yPos = Random.Range(rightPointer.transform.position.y + 1, right.transform.position.y);
             var x = Random.Range(left.transform.transform.position.x, right.transform.position.x);
 
             var a = Instantiate(goldenSpawner, new Vector2(x, yPos), Quaternion.identity);
             var y = a.GetComponent<Spawner>();
-            
-            y.ChangeTimeBetweenSpawn(Random.Range(3,30));
+
+            y.ChangeTimeBetweenSpawn(Random.Range(3, 25));
             y.ChanceChangeDirection = Random.Range(1, 10);
             y.ChanceChangeSpeed = Random.Range(1, 10);
         }

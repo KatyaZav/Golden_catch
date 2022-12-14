@@ -7,8 +7,8 @@ using System;
 
 public class HealthSlider : MonoBehaviour
 {
-    [SerializeField] float MaxHealth;
-    [SerializeField] float waitTime;
+    [SerializeField] public static float MaxHealth = 10;
+    [SerializeField] public static float waitTime = 2;
 
     float _health;
     Image image;
