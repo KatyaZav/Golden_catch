@@ -18,11 +18,15 @@ public class Spawner : MonoBehaviour
 
     [Range(1, 100)] [SerializeField] int ChanceChangeSpeed;
 
+    [SerializeField]Gradient gradient;
+    [SerializeField]SpriteRenderer sprite;
+
     void Start()
     {
         TimeBetweenGold = TimeBetweenSpawn;
         _rb = GetComponent<Rigidbody2D>();
         speed = MaxSpeed;
+        sprite = GetComponentInChildren<SpriteRenderer>();
 
         StartCoroutine(Moving());
         StartCoroutine(GenerateGold());
@@ -55,10 +59,26 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
+            StartCoroutine(ColorChanging());
             yield return new WaitForSeconds(TimeBetweenGold);
 
             var golden = Instantiate(gold);
             golden.transform.position = transform.position;           
+        }
+    }
+
+    private IEnumerator ColorChanging()
+    {
+        var i = 0;
+        while (true)
+        {
+            if (i > TimeBetweenGold)
+                break;
+
+            Debug.Log(sprite.color = gradient.Evaluate(i / TimeBetweenGold));
+            sprite.color = gradient.Evaluate(i / TimeBetweenGold);
+            i++;
+            yield return new WaitForSeconds(1);
         }
     }
 }
