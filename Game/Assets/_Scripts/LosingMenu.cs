@@ -4,24 +4,32 @@ using UnityEngine;
 using TMPro;
 using System;
 
+using UnityEngine.Events;
+
 public class LosingMenu : MonoBehaviour
 {
     [SerializeField] GameObject Points;
     [SerializeField] GameObject Record;
     [SerializeField] GameObject New_Record;
     [SerializeField] GameObject button;
+    public GameObject loseMenu;
 
+    //[SerializeField] private UnityEvent _event;
+    
     public static Action LoseMenuActivate;
     private void Awake()
     {
         HealthSlider.EndHP += Activate;
-        gameObject.SetActive(false);
         YG.YandexGame.CloseVideoEvent += ResumeGame;
+
+        /*public static UnityEvent Event = new();
+    Event?.Invoke();
+        LosingMenu.Event.AddListener(ButtonClick);*/
     }
 
     void Activate()
     {
-        gameObject.SetActive(true);
+        loseMenu.SetActive(true);
         MainMenu.MakePause(true);
         Debug.Log("Activate");
 
@@ -51,7 +59,7 @@ public class LosingMenu : MonoBehaviour
     {
         if (u == 0)
         {
-            gameObject.SetActive(false);
+            loseMenu.SetActive(false);
             MainMenu.MakePause(false);
 
             LoseMenuActivate?.Invoke();

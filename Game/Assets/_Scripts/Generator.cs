@@ -23,6 +23,10 @@ public class Generator : MonoBehaviour
         Middle = (right.transform.position.x + left.transform.position.x)/2;
     }
 
+    /// <summary>
+    /// ƒобавить динамики созданием спавнеров
+    /// </summary>
+    /// <param name="count"></param>
     void Checking(int count)
     {
         if (Statistics.GameCount==5)
@@ -66,11 +70,11 @@ public class Generator : MonoBehaviour
         }            
     }
 
-    private IEnumerator Animate(GameObject obj, GameObject border, GameObject pref)
+    private IEnumerator Animate(GameObject pointer, GameObject border, GameObject pref)
     {
-        obj.SetActive(true);
+        pointer.SetActive(true);
         yield return new WaitForSeconds(3f);
-        obj.SetActive(false);
+        pointer.SetActive(false);
         yield return new WaitForSeconds(1f);
         
         var yPos = border.transform.position.y+1;
