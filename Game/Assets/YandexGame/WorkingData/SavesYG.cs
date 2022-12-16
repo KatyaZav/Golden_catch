@@ -15,5 +15,8 @@ namespace YG
 
         public bool isGetGold = false;
         public bool isWasGame = false;
+
+        public float MusicVolume = 1f;
+        public float SoundVolume = 1f;
     }
 }

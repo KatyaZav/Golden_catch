@@ -9,7 +9,6 @@ public class LosingMenu : MonoBehaviour
     [SerializeField] GameObject Points;
     [SerializeField] GameObject Record;
     [SerializeField] GameObject New_Record;
-    [SerializeField] GameObject Main_Menu;
     [SerializeField] GameObject button;
 
     public static Action LoseMenuActivate;
@@ -23,7 +22,7 @@ public class LosingMenu : MonoBehaviour
     void Activate()
     {
         gameObject.SetActive(true);
-        Main_Menu.GetComponent<MainMenu>().MakePause(true);
+        MainMenu.MakePause(true);
         Debug.Log("Activate");
 
         Points.GetComponent<TextMeshProUGUI>().text = string.Format("Ваш результат: {0}", Statistics.GameCount);
@@ -53,7 +52,7 @@ public class LosingMenu : MonoBehaviour
         if (u == 0)
         {
             gameObject.SetActive(false);
-            Main_Menu.GetComponent<MainMenu>().MakePause(false);
+            MainMenu.MakePause(false);
 
             LoseMenuActivate?.Invoke();
             Statistics.HelpVideoEndGet = true;

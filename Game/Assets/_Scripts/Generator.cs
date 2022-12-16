@@ -12,7 +12,6 @@ public class Generator : MonoBehaviour
     [SerializeField] GameObject rightPointer;
     float Middle;
 
-
     [SerializeField] GameObject goldenSpawner;
     
     void Start()
@@ -93,5 +92,6 @@ public class Generator : MonoBehaviour
     {
         Statistics.LosedPoint -= Generate;
         HealthSlider.LowHp -= Generate;
+        Statistics.UpdateGameCount -= Checking;
     }
 }

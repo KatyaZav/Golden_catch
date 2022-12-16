@@ -81,8 +81,8 @@ public class Spawner : MonoBehaviour
         {
             if (i > TimeBetweenSpawn)
                 break;
-
-            sprite.color = gradient.Evaluate(i / (TimeBetweenSpawn-1));
+            if (sprite)
+                sprite.color = gradient.Evaluate(i / (TimeBetweenSpawn-1));
             i++;
             yield return new WaitForSeconds(1);
         }

@@ -12,35 +12,38 @@ public class _Slider : MonoBehaviour
 
     private void OnEnable()
     {
-        if (slider == null)
-            Start();
-
-        if (isMusic)
-            slider.value = MainMenu.VolumeMusic;
-        else
-            slider.value = MainMenu.VolumeSounds;
+        UpdateSliderValue();
     }
 
-    void Start()
+    void UpdateSliderValue()
+    {
+        if (isMusic)
+            slider.value = YG.YandexGame.savesData.MusicVolume;
+        else
+            slider.value = YG.YandexGame.savesData.SoundVolume;
+    }
+
+    void Awake()
     {
         soundManager = GameObject.FindGameObjectWithTag("MainMenu").GetComponent<MainMenu>();
         slider = GetComponent<Slider>();
 
-        if (isMusic)
-            slider.value = MainMenu.VolumeMusic;
-        else
-            slider.value = MainMenu.VolumeSounds;
+        UpdateSliderValue();
     }
 
     public void UpdateSoundsVolume()
     {
-        MainMenu.VolumeSounds = slider.value;
-        soundManager.UpdateVolume();
+        YG.YandexGame.savesData.SoundVolume = slider.value;
+        YG.YandexGame.SaveProgress();
+
+        SoundManager.Manager.UpdateVolume();
     }
 
     public void UpdateMusicVolume()
     {
-        MainMenu.VolumeMusic = slider.value;
-        soundManager.UpdateVolume();
+        YG.YandexGame.savesData.MusicVolume = slider.value;
+        YG.YandexGame.SaveProgress();
+
+        SoundManager.Manager.UpdateVolume();
     }
 }

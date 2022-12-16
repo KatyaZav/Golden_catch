@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
@@ -8,36 +9,89 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip GoldCatched;
     [SerializeField] AudioClip GoldDrop;
 
-    [SerializeField]AudioSource sourse;
+    [SerializeField] AudioClip menu;
+    [SerializeField] AudioClip level;
+
+    public static SoundManager Manager;
+    static AudioSource sourse;
+    static AudioSource MusicSource;
 
     private void Awake()
     {
-        Statistics.UpdateGameCount += Count;
-        Statistics.LosedPoint += Lose;
-        MainMenu.ButtonClicked += ButtonSound;       
-    }
-
-    void Start()
-    {
-        if (gameObject != null)
-            DontDestroyOnLoad(gameObject);
-        var e = GameObject.FindGameObjectsWithTag("SoundManager");
-        if (e.Length>1)
+        if (Manager == null)
         {
-            for (int i = 1; i < e.Length; i++)
-                Destroy(e[i]);
+            Manager = this;
+            AudioSource[] sources = GetComponentsInChildren<AudioSource>();
+            MusicSource = sources[1];
+            //MusicSource.GetComponentInChildren<AudioSource>();
+            //sourse = GetComponent<AudioSource>();
+            sourse = sources[0];
+
+            UpdateVolume();
+        }
+        else
+        {
+            Debug.LogWarning("Sound manager generated more than once");
+            Destroy(gameObject);
         }
 
-        sourse = GetComponent<AudioSource>();
+        Statistics.UpdateGameCount += Count;
+        Statistics.LosedPoint += Lose;
+        MainMenu.ButtonClicked += ButtonSound;
 
+
+        PlayMusic(SceneManager.GetActiveScene().buildIndex);
     }
+
+    private void OnDestroy()
+    {
+        Statistics.UpdateGameCount -= Count;
+        Statistics.LosedPoint -= Lose;
+        MainMenu.ButtonClicked -= ButtonSound;
+
+        Manager = null;
+        MusicSource = null;
+        sourse = null;
+    }
+
+    /*void Start()
+    {
+        if (Manager == null)
+        {
+            Manager = this;
+            MusicAudio.GetComponentInChildren<AudioSource>();
+            sourse = GetComponent<AudioSource>();
+
+            UpdateVolume();
+        }
+        else
+        {
+            Debug.LogWarning("Sound manager generated more than once");
+            Destroy(gameObject);
+        }        
+    }*/
 
     private void Count(int x)
     {
-        if (sourse == null)
-            Start();
-
         sourse.PlayOneShot(GoldCatched);
+    }
+
+    public static void PlayMusic(int number)
+    {
+        switch (number)
+        {
+            case 0:
+                MusicSource.clip = Manager.menu;
+                break;
+            case 1:
+                MusicSource.clip = Manager.level;
+                break;
+            default:
+                Debug.LogWarning("Music not founded");
+                break;
+        }
+
+        MusicSource.Play();
     }
 
     private void Lose()
@@ -48,5 +102,13 @@ public class SoundManager : MonoBehaviour
     private void ButtonSound()
     {
         sourse.PlayOneShot(ButtonClick);
+    }
+
+    public void UpdateVolume()
+    {
+        sourse
+            .volume = 
+            YG.YandexGame.savesData.SoundVolume;
+        MusicSource.volume = YG.YandexGame.savesData.MusicVolume;
     }
 }
